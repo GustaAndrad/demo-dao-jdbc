@@ -1,8 +1,6 @@
 package Application;
 
 import java.util.Date;
-import model.dao.DaoFactory;
-import model.dao.SellerDao;
 import model.entities.Department;
 import model.entities.Seller;
 
@@ -14,12 +12,13 @@ public class Program {
 
     public static void main(String[] args) {
 
-        
-        //Forma de injeçao de dependencia sem explicitar a implementaçao usando DaoFactory
-        SellerDao sellerDao = DaoFactory.createSellerDao();
-        
-        //Teste do findById
-        Seller seller = sellerDao.findById(3);
+        //Teste simples para verificar Department e Seller
+        Department obj = new Department(1, "Books");
+        System.out.println(obj);
+
+        Seller seller = new Seller(21, "Bob", "bob@gmail.com", new Date(), 3000.0, obj);
         System.out.println(seller);
+
     }
+
 }
